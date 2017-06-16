@@ -38,3 +38,23 @@ def validateIDShotgun(validatedID):
 			print "The founded %s's name is: %s" %(inputType, shotgunFile['code'])
 			shotgunVal = True
 			return shotgunFile
+
+def checkVersionsSG():
+	global savedVersions, codeToUpload
+	fields = ['id', 'code']
+	filters = [['entity', 'is', {'type': inputType, 'id': goodID}]]
+	versions = sg.find("Version", filters, fields)
+	savedVersions = versions
+	print "The versions in this %s are:" %inputType
+	for v in versions:
+		print 'VERSION: %s and his ID is: %d' % (v['code'], v['id'])
+
+
+
+
+
+
+
+
+
+
