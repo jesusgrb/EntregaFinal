@@ -73,7 +73,15 @@ def createContent(id, code, taskType):
     pprint(result)
     print "The ID of the %s is %d." % (result['type'], result['id'])
 
-
+def createVersion(inType, ID, code, actionID, mediaPath, description):
+	data = { 'project': {'type': 'Project','id': ID},
+         'code': code,
+         'description': description,
+         'sg_status_list': 'rev',
+         'entity': {'type': inType, 'id': actionID}
+         }
+	result = sg.create('Version', data)
+	uploadContent(result['id'], mediaPath)
 
 
 
