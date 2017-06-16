@@ -11,9 +11,9 @@ codeToUpload = None
 def validateType(userInputType):
 	validationType = False
 	while (validationType == False):
-		if (userInputType == 'asset' or userInputType == 'a'):
+		if (userInputType == 'asset'):
 			return 'Asset'
-		elif (userInputType == 'shot' or userInputType == 's'):
+		elif (userInputType == 'shot'):
 			return 'Shot'
 		else:
 			userInputType = raw_input("ERROR - Invalid input. Try again\nWhat do you want to upload?\n-> Asset\n-> Shot\n").lower()
@@ -100,6 +100,76 @@ def uploadContent(ID, mediaPath):
 	print 'Uploaded succesfully'
 
 
+'''
+{
+user_action = raw_input("Where do you want to upload your video?\n-> Asset\n-> Shot\n").lower()
+inputType = validateType(user_action)
+ID = raw_input("Type in the %s's VERSION ID:\n" %inputType)
+goodID = validateID(ID)
+mediaFile = '/Users/anapau/Desktop/Leak.mov'
+checkVersionsSG()
+versionID = raw_input("Type in the ID of the version where you want to upload your video:\n")
+goodVersionID = validateID(versionID)
+uploadContent(goodVersionID, mediaFile)
+}
+'''
+
+
+'''
+{
+user_action} = raw_input("What do you want to delete?\n-> Asset\n-> Shot\n").lower()
+inputType = validateType(user_action)
+ID = raw_input("Type in the %s's ID:\n" %inputType)
+goodID = validateID(ID)
+
+deleteContent(inputType, goodID)
+}
+'''
+
+
+'''
+{
+projectName = raw_input('Type in the name of the project you want to create a shot in:\n')
+projectID = raw_input("Type in %s's ID:\n" %projectName)
+goodProjectID = validateID(projectID)
+user_action = raw_input("Where do you wanna create a new version?\n-> Asset\n-> Shot\n").lower()
+inputType = validateType(user_action)
+ID = raw_input("Type in the %s's ID:\n" %inputType)
+goodID = validateID(ID)
+#shotgunInfo = validateIDShotgun(goodID)
+code = raw_input("Type in %s's version name:\n" %inputType)
+mediaFile = '/Users/anapau/Desktop/Leak.mov'
+desc = raw_input("Type in %s's description:\n" %inputType)
+#uploadContent(goodVersionID, mediaFile)
+createVersion(inputType, goodProjectID, code, goodID, mediaFile, desc)
+}
+'''
+
+'''
+{
+user_action = raw_input("Type what you want to upload?\n-> Asset\n-> Shot\n").lower()
+inputType = validateType(user_action)
+ID = raw_input("Type in the %s's ID:\n" %inputType)
+goodID = validateID(ID)
+shotgunInfo = validateIDShotgun(goodID)
+}
+'''
+
+
+'''{
+projectName = raw_input('Type in the name of the project you want to create a shot in:\n')
+projectID = raw_input("Type in %s's ID:\n" %projectName)
+goodID = validateID(projectID)
+user_action = raw_input("Type what you want to create?\n-> Asset\n-> Shot\n").lower()
+inputType = validateType(user_action)
+code = raw_input("Type in %s's name:\n" %inputType)
+
+createContent(goodID, code, inputType)
+}'''
+
+
+print 'Data correct'
+time.sleep(5)
 
 
 
