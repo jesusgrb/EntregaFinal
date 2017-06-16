@@ -95,6 +95,9 @@ def updateContent(contentID, code, inputType):
 	}
 	result = sg.update(inputType, contentID, data)
 
+def uploadContent(ID, mediaPath):
+	result = sg.upload("Version", ID, mediaPath, field_name = "sg_uploaded_movie", display_name="Latest QT")
+	print 'Uploaded succesfully'
 
 
 
