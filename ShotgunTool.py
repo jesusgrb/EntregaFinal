@@ -49,6 +49,19 @@ def checkVersionsSG():
 	for v in versions:
 		print 'VERSION: %s and his ID is: %d' % (v['code'], v['id'])
 
+def asignName(inputName):
+	global savedVersions
+	global codeToUpload
+	for v in savedVersions:
+		if(inputName.lower() in v['code'].lower()):
+			codeToUpload = v['code']
+	if (codeToUpload == None):
+		codeToUpload = inputName + "_v001"
+		updateContent(goodID, codeToUpload, inputType)
+	else:
+		codeToUpload = codeToUpload[:len(codeToUpload) - 4] + ('_v%03d' %(int(codeToUpload[len(codeToUpload) - 3:])+ 1))
+		updateContent(goodID, codeToUpload, inputType)
+
 
 
 
