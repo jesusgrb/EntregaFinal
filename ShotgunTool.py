@@ -26,3 +26,15 @@ def validateID(userInputID):
 			return userInputID
 		except:
 			userInputID = raw_input("ERROR - ID must be a number.\nType in the correct ID:\n")
+
+def validateIDShotgun(validatedID):
+	shotgunVal = False
+	while (shotgunVal == False):
+		shotgunFile = sg.find_one(inputType, [["id", "is", validatedID]], ["id", "code", "sg_status_list"])
+		if (shotgunFile == None):
+			newID = raw_input("ERROR - No %s with ID %s found on the project.\nType in the correct ID:\n" % (inputType, validatedID))
+			validatedID = validateID(newID)
+		else:
+			print "The founded %s's name is: %s" %(inputType, shotgunFile['code'])
+			shotgunVal = True
+			return shotgunFile
