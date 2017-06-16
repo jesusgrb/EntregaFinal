@@ -83,6 +83,18 @@ def createVersion(inType, ID, code, actionID, mediaPath, description):
 	result = sg.create('Version', data)
 	uploadContent(result['id'], mediaPath)
 
+def deleteContent(inpType, inputID):
+	result = sg.delete(inpType, inputID)
+	print 'The %s has been deleted succesfully' %inpType
+
+def updateContent(contentID, code, inputType):
+	data = {
+		'code': code,
+		'description': 'Updating',
+        'sg_status_list': 'ip'
+	}
+	result = sg.update(inputType, contentID, data)
+
 
 
 
