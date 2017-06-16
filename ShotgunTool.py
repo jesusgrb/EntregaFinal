@@ -17,3 +17,12 @@ def validateType(userInputType):
 			return 'Shot'
 		else:
 			userInputType = raw_input("ERROR - Invalid input. Try again\nWhat do you want to upload?\n-> Asset\n-> Shot\n").lower()
+
+def validateID(userInputID):
+	validationNum = False
+	while (validationNum == False):
+		try:
+			userInputID = int(userInputID)
+			return userInputID
+		except:
+			userInputID = raw_input("ERROR - ID must be a number.\nType in the correct ID:\n")
